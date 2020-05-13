@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const Movie = require('../models/Movie');
+const Movie = require('../models/Movie'); // bringing in the Movie Schema
+
+/* seed is here to just populate the database, maybe for testing.. it is completely seperate from the app */
 
 mongoose
 	.connect('mongodb://localhost/starter-code', { useNewUrlParser: true })
@@ -10,6 +12,7 @@ mongoose
 		console.error('Error connecting to mongo', err);
 	});
 
+//movies is the data we're using
 const movies = [
 	{
 		title: 'A Wrinkle in Time',
@@ -93,4 +96,5 @@ const movies = [
 	}
 ];
 
+//loading the movies in the database and then disconnecting
 Movie.insertMany(movies).then((res) => mongoose.disconnect()).catch((err) => console.log(err));
