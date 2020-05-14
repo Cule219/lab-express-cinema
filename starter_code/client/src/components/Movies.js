@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
+import {Link} from 'react-router-dom';
 
 class Movies extends Component {
     state = {
@@ -20,9 +21,8 @@ class Movies extends Component {
             return (
                 <li key={eachMovie._id}>
                     <h1>{eachMovie.title}</h1>
-                    <h2>{eachMovie.director}</h2>
                     <img src={eachMovie.image} alt="film poster"/>
-                    <p>{eachMovie.description}</p>
+                    <Link to={`movies/:${eachMovie._id}`}>See More</Link>
                 </li>
             )
         })
@@ -33,7 +33,6 @@ class Movies extends Component {
     render() {
         return (
             <div>
-                Movies Component
                 {this.showMovies()}
             </div>
         );
