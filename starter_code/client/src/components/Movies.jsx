@@ -61,14 +61,14 @@ class Movies extends Component {
   sendMessageToServer = (e) => {
     e.preventDefault();
     let res = Axios.post(
-      // is supposed to send my input to add a new movie over to the backend, I am receiving the request but req.body comes out as "undefined"
+      // is supposed to send my input to add a new movie over to the backend. Problem was in back end code, req was before res
       moviesUrl,
-      this.state.title,
-      this.state.description,
-      this.state.director,
-      this.state.showtimes,
-      this.state.stars,
-      this.state.image //marks the object that I am trying to send to my backend (appears as undefined under req.body) seeing a promis(<pending>)
+     {  title: this.state.title,
+        description: this.state.description,
+        director: this.state.director,
+        showtimes: this.state.showtimes,
+        stars: this.state.stars,
+        image: this.state.image,} //marks the object that I am trying to send to my backend 
     );
 
     console.log(res);

@@ -20,8 +20,13 @@ router.get("/movies/:id", (req, res, next) => {
   });
 }); //this call sends api information to my app
 
-router.post("/movies", (res, req, next) => {
+router.post("/movies", (req, res, next) => {
   console.log(`made it to post`, req.body);
-}); // is supposed to send info to my DB, I can see req, but cannot see req.body
+  Movies.create(req.body).then((res) => {
+    res
+      .json({ message: "Success! the movie was posted", newMovieId: res_id })
+      .catch((err) => res.json(err));
+  });
+}); //posted to DB, problem was the I put req before res
 
 module.exports = router;
