@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 
 export default class Home extends Component {
   async callMyBackend() {
@@ -12,6 +13,8 @@ export default class Home extends Component {
       <div>
         <button onClick={this.callMyBackend}>Test Backend Call</button>
         <h1>Welcome to Express Cinema</h1>
+        <Link to='/movies'><button>Check the movies!</button></Link>
+        <Link to='/movies/new'><button>Add New Movie</button></Link>
       </div>
     );
   }
