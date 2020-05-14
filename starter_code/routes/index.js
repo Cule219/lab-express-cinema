@@ -20,5 +20,11 @@ router.get("/movies/:id", (req, res, next) => {
   })
 });
 
+router.post("/movies", (req, res, next)=> {
+  Movie.create(req.body).then(response => {
+    res.json({message:"success", newMovieId: response._id}) //Back to the front end sending another message 7
+  }).catch(err => res.json({err}))
+})
+
 module.exports = router;
 

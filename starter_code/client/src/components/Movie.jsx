@@ -29,10 +29,36 @@ class Movie extends Component {
         })
     }
 
+    sendNewMovieToServer = async () => {
+        let res = await axios.post('http://localhost:5000/movies', this.state)
+        console.log(res);
+
+        let newMovies = [...this.state.movies]
+        newMovies.push({title:this.state.title, description:this.state.description, url:this.state.url})
+
+        this.setState({ 
+            newMovieId: res.data.newMovieId,
+            movies: newMovies
+        })
+    }
+
+    createNewMovie = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+          })
+    }
+
     render() {
         return (
             <div>
-                Hello from Movie
+                <div>
+                <h3>Add Movie</h3>
+                    <input type="text" placeholder="title" name="title" onChange={this.createNewMovie}/><br></br>
+                    <input type="text" placeholder="description" name="description" onChange={this.createNewMovie}/><br></br>
+                    <input type="url" placeholder="image" name="image " onChange={this.createNewMovie}/><br></br>
+                    <button onClick={this.sendNewMovieToServer}>Add Movie</button>
+                </div>
+                
                 <br></br>
                 {this.showMovies()}
                 <Link to="/">Back Home</Link>
@@ -42,3 +68,10 @@ class Movie extends Component {
 }
 
 export default Movie;
+
+// title: String,
+// description: String,
+// stars: [String],
+// image: String,
+// description: String,
+// showtimes: [String]
