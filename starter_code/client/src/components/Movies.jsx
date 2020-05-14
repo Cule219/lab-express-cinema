@@ -22,7 +22,7 @@ class Movies extends Component {
 					<h1>{eachMovie.title}</h1>
 					<h2>{eachMovie.director}</h2>
 					<Link to={`/movies/${eachMovie._id}`}>
-						<img src={eachMovie.image} />
+						<img src={eachMovie.image} alt={eachMovie.title} />
 					</Link>
 					{/* <p>{eachMovie.description}</p> */}
 				</li>

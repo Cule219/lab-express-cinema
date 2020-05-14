@@ -20,4 +20,9 @@ router.get('/movies/:id', (req, res) => {
 	});
 });
 
+router.post('/movies', (req, res) => {
+	// console.log('made it to post', req.body);
+	Movie.create(req.body).then((resDB) => res.json(resDB)).catch((err) => console.log(err));
+});
+
 module.exports = router;
