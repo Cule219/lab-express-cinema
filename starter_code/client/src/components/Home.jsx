@@ -8,12 +8,15 @@ export default class Home extends Component {
     let responseFromBackend = await axios.get("http://localhost:5000/");
     console.log(responseFromBackend);
   }
+
+  
   render() {
     return (
       <div>
         <button onClick={this.callMyBackend}>Test Backend Call</button>
         <h1>Welcome to Express Cinema</h1>
         <button><Link to='/movies'>Check The Movies!</Link></button>
+        <button><Link to='/movies/new'>Add a movie</Link></button>
       </div>
     );
   }
