@@ -14,6 +14,7 @@ export default class Home extends Component {
         <button onClick={this.callMyBackend}>Test Backend Call</button>
         <h1>Welcome to Express Cinema</h1>
         <Link to='/movies'><button>Check the movies!</button></Link>
+        <Link to='/movies/new'><button>Add New Movie</button></Link>
       </div>
     );
   }

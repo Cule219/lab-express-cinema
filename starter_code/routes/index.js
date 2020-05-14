@@ -21,3 +21,9 @@ router.get('/movie/:id', (req,res)=>{
     res.json({movie})
   })
 })
+
+router.post('/movies', (req,res)=>{
+  Movie.create(req.body)
+    .then((resDB) => res.json(resDB))
+    .catch((err)=> console.log(err))
+})
