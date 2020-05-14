@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
+
 
 class MoviesDetails extends Component {
   state = {
@@ -24,6 +26,7 @@ class MoviesDetails extends Component {
         
           <div>
             {/* <img src={movieObj.image} alt={movieObj.title} /> */}
+            <button><Link to={"/movies"}>Go Back </Link></button> 
             <h1>{title}</h1>
             <h2>{director}</h2>
             <h3>Stars</h3>
