@@ -13,7 +13,8 @@ class App extends Component {
 
   componentDidMount = async () => {
     console.log("Mounting")
-    let responseFromBackend = await axios.get("http://localhost:5000/movies");
+    // console.log(process.env)
+    let responseFromBackend = await axios.get(process.env.REACT_APP_API_URL);
     console.log(responseFromBackend.data);
     this.setState({
         movies: responseFromBackend.data,

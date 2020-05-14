@@ -17,10 +17,10 @@ class Movies extends Component {
     render() {
         return (
             <div>
-                <navbar>
+                <nav>
                     <img src="https://www.pinclipart.com/picdir/big/345-3453828_emoji-clipart-popcorn-emoji-pop-corn-png-download.png" />
                     Ironhack Cinema
-                </navbar>
+                </nav>
                 <div>
                     <h3>Click on the movie to check the showtimes!</h3>
                     {this.displayMovies()}

@@ -60,7 +60,7 @@ code {
   padding-left: 1em;
 }
 
-navbar {
+nav {
   background-color: rgb(39, 41, 45);
   color: white;
   font-size: 1.5em;
@@ -71,7 +71,7 @@ navbar {
   padding: 0.2em 0;
 }
 
-navbar img {
+nav img {
   height: 1em;
   padding: 0 0.5em;
 }
