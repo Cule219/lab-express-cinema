@@ -8,9 +8,15 @@ router.get("/", (req, res, next) => {
   res.json({ message: "index" });
 });
 
-router.get("/movies", (req, res, next) => {
+router.get("/movies", (req, res, ) => {
   Movie.find().then(movies => {
-    res.json({ movies }); //Sending plants to the client
+    res.json({ movies }); //Sending movies to the client
+  })
+});
+
+router.get("/movies/:id", (req, res, next) => {
+  Movie.find().then(movies => {
+    res.json({ movies }); //Sending movies to the client
   })
 });
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 class Movies extends Component {
     state = {
@@ -21,9 +22,10 @@ class Movies extends Component {
                 <div className="row">
                     <div className="col-lg-4 artist-container">
                     <h1>{eachMovie.title}</h1>
-                    <h1>{eachMovie.director}</h1>
+                    
                     <img src = {eachMovie.image} alt={eachMovie.image}/>
                     <p>{eachMovie.description}</p>
+                    <button><Link to={`/movies/${eachMovie._id}`}>See More</Link></button>  
                     </div>
                 </div>
             </div>)
