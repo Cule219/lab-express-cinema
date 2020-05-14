@@ -2,25 +2,27 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 
-let moviesUrl = `http://localhost:5000/movies`;
+let moviesUrl = `http://localhost:5000/movies`; // Gives me the url to my backend, How do I establish this backend when the URL is not a localhost?
+
 class Movies extends Component {
   state = {
     movies: [],
     addMovie: false,
-    title: '',
-    director: '',
-    description: '',
-    showtimes: '',
-    stars: ''
+    title: "",
+    director: "",
+    description: "",
+    showtimes: "",
+    stars: "",
   };
 
   componentDidMount = () => {
     Axios.get(moviesUrl)
-      .then((res) => this.setState({ movies: res.data.movies }))
+      .then((res) => this.setState({ movies: res.data.movies })) //grabs my data from my backend and sets the state
       .catch((err) => console.log(err));
   };
 
   displayMovies = () => {
+    //passes each movie in my database and creates an item in a list
     let movieArr = [...this.state.movies];
     console.log(movieArr);
     return movieArr.map((eachMovie) => {
@@ -40,17 +42,17 @@ class Movies extends Component {
   };
 
   toggleAddMovie = () => {
-    this.setState({ addMovie: !this.state.addMovie });
+    this.setState({ addMovie: !this.state.addMovie }); // adds the conditional rendering to the add movie form, when true the form displays
   };
 
   setInput = (e) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value, //[e.target.name] selects all the names that are in the form and submits them individually
     });
   };
 
   setArray = (e) => {
-    let arr = e.target.value.split(",");
+    let arr = e.target.value.split(","); //because stars and showtimes are arrays I collect as a string and turn them into strings at ever ","
     this.setState({
       [e.target.name]: arr,
     });
@@ -59,16 +61,17 @@ class Movies extends Component {
   sendMessageToServer = (e) => {
     e.preventDefault();
     let res = Axios.post(
+      // is supposed to send my input to add a new movie over to the backend, I am receiving the request but req.body comes out as "undefined"
       moviesUrl,
       this.state.title,
       this.state.description,
       this.state.director,
       this.state.showtimes,
       this.state.stars,
-      this.state.image
+      this.state.image //marks the object that I am trying to send to my backend (appears as undefined under req.body) seeing a promis(<pending>)
     );
 
-    console.log(res); //show the message 8
+    console.log(res);
     let newMovies = [...this.state.movies];
     newMovies.push({
       title: this.state.title,
@@ -81,10 +84,9 @@ class Movies extends Component {
     console.log(newMovies);
 
     this.setState({
-      //9
       movies: newMovies,
       newMessage: "Hurray we did it!",
-    });
+    }); // sets the new movie in the this.state.movies and displays on list
   };
 
   addMovieForm = () => {
@@ -131,7 +133,7 @@ class Movies extends Component {
         </form>
       );
     }
-  };
+  }; // makes the form that is conditionally rendered
 
   render() {
     console.log(this.state.movies);
