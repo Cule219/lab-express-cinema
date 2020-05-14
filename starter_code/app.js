@@ -36,4 +36,6 @@ app.use(cookieParser());
 const index = require("./routes/index");
 app.use("/", index);
 
+// Routes
+
 module.exports = app;

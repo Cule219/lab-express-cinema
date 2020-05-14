@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  
+  row-gap: 3em;
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.movie img {
+  margin: 0 auto;
+}
+
+.singleMovie {
+  display: flex;
+}
+
+.singleMovieDetails {
+  padding-left: 1em;
+}
