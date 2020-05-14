@@ -13,6 +13,7 @@ export default class Home extends Component {
     return (
       <div>
         <Link to="/movies"><button onClick={this.callMyBackend}>Test Backend Call</button></Link>
+        <Link to="/movies/new"><button>Add Movie</button></Link>
         <h1>Welcome to Express Cinema</h1>
       </div>
     );

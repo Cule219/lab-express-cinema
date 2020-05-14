@@ -24,9 +24,6 @@ const debug = require("debug")(
   `${app_name}:${path.basename(__filename).split(".")[0]}`
 );
 
-// DB STUFF
-
-
 const app = express();
 
 // Middleware Setup

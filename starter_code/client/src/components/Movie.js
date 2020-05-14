@@ -8,6 +8,7 @@ class Movie extends Component {
     };
 
     async componentDidMount() {
+        // Had to remove the ':' because it was being sent to backend query :(
         let realID = this.props.match.params.id.replace(':', '')
         console.log(realID)
         const res = await Axios.get(
@@ -19,7 +20,6 @@ class Movie extends Component {
     }
 
     render() {
-        console.log( this.props.match.params.id)
         const { title, director, stars, image, description } = this.state.movie;
         return (
             <div>
