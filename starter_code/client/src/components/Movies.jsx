@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import MovieCard from './movieCard'
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import Button from '@material-ui/core/Button';
 
 export default class Movies extends Component {
   state = {
@@ -19,14 +21,9 @@ export default class Movies extends Component {
 
   showMovies = () => {
     return this.state.movies.map((eachMovie) => {
+
       return (
-        <li key={eachMovie._id}>
-          <h1>{eachMovie.title}</h1>
-          <img src={eachMovie.image} />
-          <button>
-            <Link to={`/movies/${eachMovie._id}`}>See more!</Link>
-          </button>
-        </li>
+        <MovieCard key={eachMovie._id} movie={eachMovie} />
       );
     });
   };
@@ -38,7 +35,14 @@ export default class Movies extends Component {
     return (
       <div>
         <div>
-          <button onClick={this.goBack}>Go Back</button>
+        <Button
+         variant="contained"
+         onClick={this.goBack}
+         color="default"
+         startIcon={<KeyboardBackspaceIcon />}
+      >
+        Go back
+      </Button>
         </div>
         {this.showMovies()}
       </div>
