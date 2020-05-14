@@ -44,3 +44,9 @@ li{
   text-align: center;
   margin:0;
 }
+.New{
+  background-image: url('./images/curtains.jpg');
+  width:100vw;
+  height: 100vh;
+  text-align: center;
+}

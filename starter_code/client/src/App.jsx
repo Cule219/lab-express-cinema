@@ -11,9 +11,9 @@ class App extends Component {
       <div className="App">
         <Switch>
         <Route exact path='/' component={(props) =>   <Home {...props} /> } />
-        <Route exact path={'/Movies'} render={(props)=><Movies {...props} />} />
-        <Route exact path={'/Movies/new'} render={(props)=><NewMovie {...props} />}/>
-        <Route exact path={'/Movies/:id'} render={(props)=><MovieDes {...props} />}/>
+        <Route exact path={'/movies'} render={(props)=><Movies {...props} />} />
+        <Route exact path={'/movies/new'} render={(props)=><NewMovie {...props} />}/>
+        <Route exact path={'/movies/:id'} render={(props)=><MovieDes {...props} />}/>
         </Switch>
 
       </div>

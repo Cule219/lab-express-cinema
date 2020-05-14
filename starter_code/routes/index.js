@@ -22,12 +22,8 @@ router.get("/movies/:id", (req, res) => {
     res.json(movie); 
   })
 });
-// router.post('/new-movies', (req, res)=>{
-// Movies.create(req.body)
-// .then(resDb)
-// })
-// .catch(err =>{
-//   console.log(err)
-// })
-
+router.post('/movies', (req, res) => {
+	// console.log('made it to post', req.body);
+	Movies.create(req.body).then((resDB) => res.json(resDB)).catch((err) => console.log(err));
+});
 module.exports = router;

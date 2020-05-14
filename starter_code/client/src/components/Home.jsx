@@ -13,7 +13,7 @@ export default class Home extends Component {
       <div className='Home'>
         <h1>Welcome to Express Cinema</h1>
        <Link className='btn' to='/movies'>Check out the Movies</Link>
-      <Link className='btn' to='/movies/new'>New Movie</Link>
+      <Link className="btn" to='/movies/new'>Add New Movie</Link>
       </div>
     );
   }

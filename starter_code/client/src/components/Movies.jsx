@@ -20,7 +20,7 @@ class Movies extends Component {
       return (
         <li key={eachMovie._id}>
           <h1>{eachMovie.title}</h1>
-          <Link to={`/Movies/${eachMovie._id}`}>
+          <Link to={`/movies/${eachMovie._id}`}>
             <img src={eachMovie.image} alt={eachMovie.title} />
           </Link>
         </li>
