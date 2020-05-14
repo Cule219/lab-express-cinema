@@ -17,9 +17,14 @@ class Movies extends Component {
     render() {
         return (
             <div>
-                <h1>Ironhack Cinema</h1>
-                <h3>Click on the movie to check the showtimes!</h3>
-                {this.displayMovies()}
+                <navbar>
+                    <img src="https://www.pinclipart.com/picdir/big/345-3453828_emoji-clipart-popcorn-emoji-pop-corn-png-download.png" />
+                    Ironhack Cinema
+                </navbar>
+                <div>
+                    <h3>Click on the movie to check the showtimes!</h3>
+                    {this.displayMovies()}
+                </div>
             </div>
         );
     }

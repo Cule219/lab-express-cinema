@@ -1,3 +1,25 @@
+.home {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  text-align: center;
+  background: url("https://image.freepik.com/free-vector/vector-red-white-cardboard-bucket-with-popcorn-realistic-style_1441-351.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transform: translate(-50%, -50%);
+}
+
+button {
+  border-radius: 4px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,9 +36,9 @@ code {
 
 .movies {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   
-  row-gap: 3em;
+  row-gap: 1em;
 }
 
 .movie {
@@ -30,9 +52,26 @@ code {
 }
 
 .singleMovie {
+  padding: 0.5em;
   display: flex;
 }
 
 .singleMovieDetails {
   padding-left: 1em;
+}
+
+navbar {
+  background-color: rgb(39, 41, 45);
+  color: white;
+  font-size: 1.5em;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0.2em 0;
+}
+
+navbar img {
+  height: 1em;
+  padding: 0 0.5em;
 }
