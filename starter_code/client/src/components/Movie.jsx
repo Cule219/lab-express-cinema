@@ -20,7 +20,7 @@ class Movie extends Component {
     showMovies = () => {
         return this.state.movies.map(eachMovie => {
             return( <li key={eachMovie.title}>
-                <Link to={`/movies/:id`}><h2>{eachMovie.title}</h2></Link>
+                <Link to={`/movies/${eachMovie._id}`}><h2>{eachMovie.title}</h2></Link>
                 <h4>{eachMovie.director}</h4>
                 <h4>{eachMovie.description}</h4>
                 <img src={eachMovie.image} alt=""></img>
