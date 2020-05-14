@@ -15,3 +15,9 @@ router.get('/movies', (req,res)=>{
     res.json({movies})
   })
 })
+
+router.get('/movie/:id', (req,res)=>{
+  Movie.findById(req.params.id).then(movie=>{
+    res.json({movie})
+  })
+})
