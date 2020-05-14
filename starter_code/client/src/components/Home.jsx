@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import axios from "axios";
 
 export default class Home extends Component {
@@ -10,8 +11,10 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.callMyBackend}>Test Backend Call</button>
         <h1>Welcome to Express Cinema</h1>
+        <button onClick={this.callMyBackend}>Test Backend Call</button>
+        <button><Link style={{textDecoration:"none"}} to="/movies">Click here for Movies</Link></button>
+        <button><Link style={{textDecoration:"none"}} to="/movies/new">New Movie</Link></button>
       </div>
     );
   }
