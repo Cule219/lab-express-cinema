@@ -11,7 +11,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.callMyBackend}>Test Backend Call</button>
+        {/* <button onClick={this.callMyBackend}>Test Backend Call</button> */}
         <h1>Welcome to Express Cinema</h1> 
         <button><Link to="/movies">Check Movies</Link></button>     
       

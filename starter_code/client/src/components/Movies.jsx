@@ -10,7 +10,8 @@ class Movies extends Component {
         director: [],
         stars: [],
         image: [],
-        description: []
+        description: [],
+        selectedFile: [] //Null
     }
     
     //A - Retreive movie listing data from server
@@ -62,25 +63,46 @@ class Movies extends Component {
 setTyping = (event) => {
     event.preventDefault() //Prevents the page from being refreshed
     this.setState({
-      [event.target.name] : event.target.value
+      [event.target.name] : event.target.value,
+      selectedFile: event.target.files 
     })
   }
+
+//C-User Upload with two handler methods
+// fileChangedHandler = event => {
+//     event.preventDefault() //Prevents the page from being refreshed
+//     this.setState({ selectedFile: event.target.files[0] })
+//   }
+  
+  uploadHandler = () => {
+    console.log(this.state.selectedFile)
+  }
+
+//C - Send file to server
+
 
 //Render 
     render() {
         return (
             <div>
+                <button><Link to={"/"}>Home</Link></button>  
                 {/* B - Form input fields to add a new movie to database. Refering to State */}
                 {this.state.name}
                 <h1>Add a Movie to Listing</h1>
                 <input type="text" placeholder="title" name="title" onChange={this.setTyping} />
                 <input type="text" placeholder="director" name="director" onChange={this.setTyping}/>
                 <input type="text" placeholder="star name" name="stars" onChange={this.setTyping}/>
-                <input type="url" placeholder="image" name="image" onChange={this.setTyping}/>
                 <input type="text" placeholder="description" name="description" onChange={this.setTyping}/>
 
+                {/* <input type="url" placeholder="image" name="image" onChange={this.setTyping}/> */} 
+                <br></br>
+                <input type="file" name="image" onChange={this.setTyping}/>
+                <button onClick={this.uploadHandler}>Upload Image!</button>
+
                 {/* B - Calling method aboe for Controlled Input Form */}
-                <button onClick={this.sendMessageToServer}>send to server</button> {/*Called method above 4*/}
+                <br></br>
+                <br></br>
+                <button onClick={this.sendMessageToServer}>Add Movie</button> {/*Called method above 4*/}
 
                 <p>{this.state.message}</p> 
                 <p>{this.state.newMovieID}</p> 

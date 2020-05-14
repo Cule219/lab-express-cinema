@@ -12,12 +12,13 @@ class MoviesDetails extends Component {
   //A - Retreive movie listing data from server by ID
   async componentDidMount() {
       console.log(this, 'mounted')
-      let res = await axios.get(`http://localhost:5000/movies/${this.props.match.params.id}`).then((res) => {
-      console.log(res)
+      await axios.get(`http://localhost:5000/movies/${this.props.match.params.id}`).then((res) => {
+        console.log(res)
       this.setState({
         movies: res.data
         })
-    })    
+    })   
+    
   }
 
   //A - Render movie listing details for single selection
@@ -34,9 +35,11 @@ class MoviesDetails extends Component {
             <li key={star}>{star}</li>)}
             </ul>
             <img src={image} alt={image} />
+            <h3>Description</h3>
             <p>{description}</p>
-            <p>{showtimes && showtimes.map((show) => 
-            <div key={show}>{show}</div>)}</p>
+            <h3>Showtimes</h3>
+            <div>{showtimes && showtimes.map((show) => 
+            <div key={show}>{show}</div>)}</div>
           </div>
       </div>
     );
