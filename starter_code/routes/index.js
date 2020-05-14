@@ -24,5 +24,9 @@ router.get("/movies/:id", (req, res, next) => {
   })
   })
 
+router.post("/movies", (res, req, next) => {
+  
+  })
+
 
 module.exports = router;

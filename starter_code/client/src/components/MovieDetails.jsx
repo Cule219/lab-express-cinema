@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 
@@ -16,7 +17,13 @@ componentDidMount = () => Axios.get(`http://localhost:5000/movies/${this.props.m
         console.log(movie)
         return (
             <div>
-                Hello World
+                <Link to = {`/movies`}>Go Back</Link>
+               <h1>{movie.title}</h1>
+               <h2> {movie.director} </h2>
+               <ul>
+                   {movie.stars && movie.stars.map((star) => <li key = {star}>{star}</li>)}
+               </ul>
+               <img src = {movie.image} alt = {movie.title}/>
             </div>
         );
     }
