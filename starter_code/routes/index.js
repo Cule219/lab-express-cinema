@@ -15,8 +15,8 @@ router.get("/movies", (req, res, ) => {
 });
 
 router.get("/movies/:id", (req, res, next) => {
-  Movie.find().then(movies => {
-    res.json({ movies }); //Sending movies to the client
+  Movie.findById(req.params.id).then(movies => {
+    res.json( movies ); //Sending movies to the client
   })
 });
 
