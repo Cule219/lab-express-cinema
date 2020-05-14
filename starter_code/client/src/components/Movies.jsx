@@ -3,6 +3,7 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 
 class Movies extends Component {
+    //Set state equal to null or empty array
     state = {
         movies: [],
         title: [],
@@ -59,36 +60,32 @@ class Movies extends Component {
 
 // B - Controlled Input Form
 setTyping = (event) => {
+    event.preventDefault() //Prevents the page from being refreshed
     this.setState({
       [event.target.name] : event.target.value
     })
   }
 
-
+//Render 
     render() {
         return (
             <div>
-                {/* A - Render the movie listing in the component */}
-
-                {this.state.name} {/*See Penguin 3*/}
-                {/* //Parse string based on common */}
-                {/* Text Area - Multi line , split string by new line
-                CSV Field - Split by comma
-                Field with drop down */}
+                {/* B - Form input fields to add a new movie to database. Refering to State */}
+                {this.state.name}
+                <h1>Add a Movie to Listing</h1>
                 <input type="text" placeholder="title" name="title" onChange={this.setTyping} />
                 <input type="text" placeholder="director" name="director" onChange={this.setTyping}/>
                 <input type="text" placeholder="star name" name="stars" onChange={this.setTyping}/>
-                {/* <input type="text" placeholder="stars name" name="stars" onChange={this.setTyping}/>
-                <input type="text" placeholder="stars name" name="stars" onChange={this.setTyping}/> */}
                 <input type="url" placeholder="image" name="image" onChange={this.setTyping}/>
                 <input type="text" placeholder="description" name="description" onChange={this.setTyping}/>
 
+                {/* B - Calling method aboe for Controlled Input Form */}
                 <button onClick={this.sendMessageToServer}>send to server</button> {/*Called method above 4*/}
 
-
-                <p>{this.state.message}</p> {/*10*/}
+                <p>{this.state.message}</p> 
                 <p>{this.state.newMovieID}</p> 
 
+                {/* A - Render the movie listing in the component */}
                 <h1>Movie Listing</h1>
                 {this.showMovies()}
             </div>

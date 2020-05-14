@@ -4,28 +4,28 @@ import {Link} from "react-router-dom";
 
 
 class MoviesDetails extends Component {
-  state = {
+  //Set state equal to null or empty array
+    state = {
       movies: []
   }
+
+  //A - Retreive movie listing data from server by ID
   async componentDidMount() {
       console.log(this, 'mounted')
       let res = await axios.get(`http://localhost:5000/movies/${this.props.match.params.id}`).then((res) => {
       console.log(res)
       this.setState({
         movies: res.data
-    })
-})
-      
-      
+        })
+    })    
   }
 
+  //A - Render movie listing details for single selection
   render() {
     const { title, director, stars, image, description, showtimes } = this.state.movies
     return (
       <div>
-        
-          <div>
-            {/* <img src={movieObj.image} alt={movieObj.title} /> */}
+          <div> 
             <button><Link to={"/movies"}>Go Back </Link></button> 
             <h1>{title}</h1>
             <h2>{director}</h2>
