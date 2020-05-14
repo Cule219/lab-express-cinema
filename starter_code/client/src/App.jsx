@@ -3,6 +3,8 @@ import Home from "./components/Home";
 import { Switch, Route } from 'react-router-dom';
 import Movie from './components/Movie';
 import MovieDetails from './components/MovieDetails';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 

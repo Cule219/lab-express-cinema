@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Movie.css';
 
 class Movie extends Component {
     state = {
@@ -22,7 +23,7 @@ class Movie extends Component {
             return( <li key={eachMovie.title}>
                 <Link to={`/movies/${eachMovie._id}`}><h2>{eachMovie.title}</h2></Link>
                 <h4>{eachMovie.director}</h4>
-                <h4>{eachMovie.description}</h4>
+                <h5>{eachMovie.description}</h5>
                 <img src={eachMovie.image} alt=""></img>
             </li>
             )
@@ -30,8 +31,9 @@ class Movie extends Component {
     }
 
     sendNewMovieToServer = async () => {
+        //may need to add e.preventDefault() 
         let res = await axios.post('http://localhost:5000/movies', this.state)
-        console.log(res);
+        console.log("posted new movie!", res);
 
         let newMovies = [...this.state.movies]
         newMovies.push({title:this.state.title, description:this.state.description, url:this.state.url})
@@ -50,7 +52,7 @@ class Movie extends Component {
 
     render() {
         return (
-            <div>
+            <div className="main-content">
                 <div>
                 <h3>Add Movie</h3>
                     <input type="text" placeholder="title" name="title" onChange={this.createNewMovie}/><br></br>
@@ -58,10 +60,10 @@ class Movie extends Component {
                     <input type="url" placeholder="image" name="image " onChange={this.createNewMovie}/><br></br>
                     <button onClick={this.sendNewMovieToServer}>Add Movie</button>
                 </div>
-                
+                <Link id="back-home" to="/">Back Home</Link>
                 <br></br>
-                {this.showMovies()}
-                <Link to="/">Back Home</Link>
+                <ul className="movies-list">{this.showMovies()}</ul>
+                
             </div>
         );
     }

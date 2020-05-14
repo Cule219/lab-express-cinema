@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import './Home.css';
 
 
 
@@ -12,13 +13,13 @@ export default class Home extends Component {
   }
   render() {
     return (
-      <div>
-        
-        <h1>Iron Cinema</h1>
-        <Link to={`/movies`}>Movie</Link>
-        <br></br>
-        {/* <button onClick={this.callMyBackend}>TEST: Backend Call</button> */}
+      <div className="main">
+        <div className="container">
+          <h1>Iron Cinema</h1>
+          <button><Link to={`/movies`}>Check out movies!</Link></button>
+        </div>
       </div>
     );
   }
 }
+
