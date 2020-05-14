@@ -97,6 +97,8 @@ const movies = [
 
   Movie.insertMany(movies).then(movies=>{
 console.log(movies);
-mongoose.disconnect();
+// mongoose.disconnect();
+setTimeout( () => mongoose.connection.close() , 0)  // Adds to the end. 
 }).catch(err=> console.error(err))
+
 
