@@ -1,0 +1,18 @@
+.main-content {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.movies-list {
+    list-style-type: none;
+    width: 50%;
+    background-color: rgba(182, 182, 202, 0.158);
+}
+
+#back-home {
+    margin-top: 25px;
+}
