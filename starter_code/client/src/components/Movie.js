@@ -8,8 +8,10 @@ class Movie extends Component {
     };
 
     async componentDidMount() {
+        let realID = this.props.match.params.id.replace(':', '')
+        console.log(realID)
         const res = await Axios.get(
-            `http://localhost:5000/movies/${this.props.match.params.id}`
+            `http://localhost:5000/movies/${realID}`
         );
         this.setState({
             movie: res.data,
@@ -17,6 +19,7 @@ class Movie extends Component {
     }
 
     render() {
+        console.log( this.props.match.params.id)
         const { title, director, stars, image, description } = this.state.movie;
         return (
             <div>
