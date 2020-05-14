@@ -25,7 +25,7 @@ router.get("/movies/:id", (req, res, next) => {
   })
 
 router.post("/movies", (res, req, next) => {
-  
+  console.log(`made it to post`, req.body)
   })
 
 

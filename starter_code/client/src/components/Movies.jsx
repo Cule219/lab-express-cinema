@@ -7,6 +7,11 @@ class Movies extends Component {
   state = {
     movies: [],
     addMovie: false,
+    title: '',
+    director: '',
+    description: '',
+    showtimes: '',
+    stars: ''
   };
 
   componentDidMount = () => {
