@@ -19,11 +19,11 @@ class Movie extends Component {
 
     showMovies = () => {
         return this.state.movies.map(eachMovie => {
-            return( <li>
-                <h2>{eachMovie.title}</h2>
-                <h1>{eachMovie.director}</h1>
-                <h1>{eachMovie.description}</h1>
-                <img src={eachMovie.image}></img>
+            return( <li key={eachMovie.title}>
+                <Link to={`/movies/:id`}><h2>{eachMovie.title}</h2></Link>
+                <h4>{eachMovie.director}</h4>
+                <h4>{eachMovie.description}</h4>
+                <img src={eachMovie.image} alt=""></img>
             </li>
             )
         })

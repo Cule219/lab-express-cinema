@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Home from "./components/Home";
 import { Switch, Route } from 'react-router-dom';
 import Movie from './components/Movie';
+import MovieDetails from './components/MovieDetails';
 
 
 
@@ -15,6 +16,7 @@ class App extends Component {
         <Home />
         <Switch>
           <Route exact path='/movies' render={(props) => <Movie {...props} />}></Route>
+          <Route exact path='/movies/:id' render={(props) => <MovieDetails {...props} />}></Route>
         </Switch>
       </div>
     );
