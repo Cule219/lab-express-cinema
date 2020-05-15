@@ -1,0 +1,21 @@
+.homeBtn a {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.homeBtn {
+    margin-left: 10px !important;
+}
+
+.card img {
+    height: 200px !important;
+
+}
+
+.card {
+    margin: 20px 0px !important;
+}
+
+body {
+    background-color: #F5F5F5;
+}

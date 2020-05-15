@@ -1,18 +1,33 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import AddThing from './AddThing';
+import './styles.css';
 
 export default class Home extends Component {
-  async callMyBackend() {
-    // this is an example call to our backend
-    let responseFromBackend = await axios.get("http://localhost:5000/");
-    console.log(responseFromBackend);
-  }
   render() {
     return (
-      <div>
-        <button onClick={this.callMyBackend}>Test Backend Call</button>
+      <Grid container direction="row" justify="center" alignItems="center">
         <h1>Welcome to Express Cinema</h1>
-      </div>
+        <Button
+          className="homeBtn"
+          variant="contained"
+          size="medium"
+          color="primary"
+        >
+          <Link to="/movies">Check The Movies!</Link>
+        </Button>
+        <Button
+          className="homeBtn"
+          variant="contained"
+          size="medium"
+          color="primary"
+        >
+          <Link to="/movies/new">Add a movie</Link>
+        </Button>
+        <AddThing />
+      </Grid>
     );
   }
 }
