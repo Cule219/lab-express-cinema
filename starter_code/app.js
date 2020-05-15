@@ -34,6 +34,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 const index = require("./routes/index");
-app.use("/", index);
+app.use("/", index); // imports the routes into the app.js file
 
 module.exports = app;
