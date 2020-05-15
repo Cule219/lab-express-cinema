@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import AddThing from './AddThing';
 import './styles.css';
 
 export default class Home extends Component {
@@ -26,6 +26,7 @@ export default class Home extends Component {
         >
           <Link to="/movies/new">Add a movie</Link>
         </Button>
+        <AddThing />
       </Grid>
     );
   }
