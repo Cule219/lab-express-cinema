@@ -19,7 +19,8 @@ class NewMovie extends Component {
 
 		Axios.post('http://localhost:5000/movies', this.state)
 			.then((res) => {
-				console.log(res);
+                console.log(res, this);
+                this.props.history.push('/movies')
 			})
 			.catch((err) => console.log(err));
 	};
