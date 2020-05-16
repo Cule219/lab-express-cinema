@@ -21,11 +21,11 @@ router.get("/movies/:id", (req, res) => {
   });
 });
 
-router.post("/movies", (req, res) => {
-  console.log(req.params.body)
-  Movie.insertOne(req.params.body).then((movie) => {
-    res.json(movie);
-  }).catch(err => console.log('Oh great, another error!'))
+router.post("/movies/new", (req, res) => {
+  console.log("We made it")
+  // Movie.insertOne(req.params.body).then((movie) => {
+  //   res.json(movie);
+  // }).catch(err => console.log('Oh great, another error!'))
 })
 
 module.exports = router;
