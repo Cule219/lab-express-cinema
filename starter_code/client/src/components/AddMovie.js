@@ -12,6 +12,7 @@ class AddMovie extends Component {
         axios.post(' http://localhost:5000/movies/new', this.state).then(res=>{
             console.log(res.data)
         })
+        // Redirect to movie list after you add new title maybe?
     }
 
     handleChange = (e) => {
