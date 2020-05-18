@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.Home{
+  font-size: 25px;
+  background-image: url('./images/movie\ background.jpg');
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  text-align: center;
+  align-content: center;
+  color:white;
+  margin:0;
+}
+.btn{
+color:white;
+}
+li{
+  list-style:none;;
+}
+.curtains{
+  background-image: url('./images/curtains.jpg');
+  width: 100vw;
+  color: white;
+  text-align: center;
+  margin:0;
+}
+.curtains2{
+  background-image: url('./images/curtains.jpg');
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  margin:0;
+}
+.New{
+  background-image: url('./images/curtains.jpg');
+  width:100vw;
+  height: 100vh;
+  text-align: center;
+}
