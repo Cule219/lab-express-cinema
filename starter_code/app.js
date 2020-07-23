@@ -7,15 +7,22 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const cors = require("cors");
-
+const movies = require("./bin/seeds");
+const Movie = require("./models/Movie");
 mongoose
-  .connect("mongodb://localhost/starter-code", { useNewUrlParser: true })
-  .then((x) => {
-    console.log(
+  .connect("mongodb://localhost/starter-code", {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+  })
+  .then(async x => {
+    await console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
     );
+    //let data1 = await Movie.insertMany(movies);
+    //console.log(data1);
   })
-  .catch((err) => {
+  .catch(err => {
     console.error("Error connecting to mongo", err);
   });
 
@@ -35,5 +42,11 @@ app.use(cookieParser());
 
 const index = require("./routes/index");
 app.use("/", index);
-
+// app.get("/movies", (req, res, next) => {
+//   Movie.find(mov => {
+//     console.log(mov);
+//     res.json(mov);
+//   });
+// });
+app.listen(5000, () => console.log("App listening on port 5000!"));
 module.exports = app;
