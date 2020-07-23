@@ -16,7 +16,10 @@ class SingleMovie extends Component {
 
   showMovie() {
     return (
-      <h1>{this.state.movie.title}</h1>
+      <div>
+        <h1>{this.state.movie.title}</h1>
+        <img src={`${this.state.movie.image}`}></img>
+      </div>
     )
   }
 
