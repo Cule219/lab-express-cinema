@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
@@ -9,7 +7,11 @@ const path = require("path");
 const cors = require("cors");
 
 mongoose
-  .connect("mongodb://localhost/starter-code", { useNewUrlParser: true })
+  .connect("mongodb://localhost/starter-code", { 
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+  })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -36,4 +38,7 @@ app.use(cookieParser());
 const index = require("./routes/index");
 app.use("/", index);
 
+app.listen(5000)
+
 module.exports = app;
+

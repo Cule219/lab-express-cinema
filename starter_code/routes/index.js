@@ -7,4 +7,10 @@ router.get("/", (req, res, next) => {
   res.json({ message: "index" });
 });
 
+router.get("/movies", (req, res) => {
+  Movie.find()
+    .then(data => res.json(data))
+    .catch(err => console.log(err));
+});
+
 module.exports = router;
