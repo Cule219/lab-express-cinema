@@ -11,3 +11,6 @@ npm-debug.log
 
 # dependencies client
 client/node_modules
+
+# for maintenance purposes - not best practices
+package-lock.json

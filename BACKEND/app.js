@@ -1,6 +1,5 @@
 require("dotenv").config();
 
-const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -9,7 +8,11 @@ const path = require("path");
 const cors = require("cors");
 
 mongoose
-  .connect("mongodb://localhost/starter-code", { useNewUrlParser: true })
+  .connect("mongodb://localhost:27017/movie-dev", {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -29,11 +32,10 @@ const app = express();
 // Middleware Setup
 app.use(cors());
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-const index = require("./routes/index");
-app.use("/", index);
+app.use("/", require("./routes/index"));
 
 module.exports = app;

@@ -1,60 +1,5 @@
-![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
-
-# Express Cinema
-
-## Introduction
-
-![image](https://user-images.githubusercontent.com/23629340/36983687-49a3d64e-2093-11e8-8b86-b11813f0cdba.png)
-
-We will create a cinema web page, where we will display the showtimes for some movies!
-
-## Requirements
-
-- Fork this repo
-- Clone this repo
-
-## Submission
-
-Upon completion, run the following commands:
-
-```
-$ git add .
-$ git commit -m "done"
-$ git push origin master
-```
-
-- Create Pull Request so your TAs can check up your work.
-
-## Instructions
-
-### Iteration 0 | Initialize the project
-
-After forking and cloning the project, you will have to add a `starter_code/.env` file:
-
-```
-PORT=5000
-```
-
-And you have to install all the dependencies:
-
-```sh
-$ cd starter_code
-$ npm install
-$ cd client
-$ npm install
-```
-
-Now you are ready to start 🚀
-
-### Iteration 1 | Seed the database
-
-First, we need to seed our database. Below you will find an array of objects with info for 8 movies. You should create two files:
-
-- `models/Movie.js` for the Movie model
-- `bin/seeds.js` file inside the `bin` folder and write the code necessary to seed the database.
-
-```javascript
-// To insert in "bin/seeds.js"
+const mongoose = require("mongoose");
+const Movie = require("../models/Movie.js");
 
 const movies = [
   {
@@ -138,38 +83,18 @@ const movies = [
     showtimes: ["13:00", "15:30", "18:00", "20:10", "22:40"],
   },
 ];
-```
 
-### Iteration 2 | The Home Page
-
-We need our home page. Simple and beautiful, in the client create the following home page(you will need router to switch between your pages):
-
-![image](https://user-images.githubusercontent.com/23629340/36986664-acd6af14-209a-11e8-816d-b62417239c53.png)
-
-The `button` should be a link redirecting to the `/movies` route.
-
-### Iteration 3 | List the Movies
-
-On the `/movies` route, we need to list all the movies we have in our database. You should create a movies component, and display a list of all the movies.
-
-![image](https://user-images.githubusercontent.com/23629340/36986832-240fe492-209b-11e8-94de-a7334af41076.png)
-
-### Iteration 4 | Display Movie Info
-
-Here, you have to create a page to display all the info about each movie. You need a `movie/:id` route, where the user can check all the info about each movie, after clicking on the `See More` button on the `/movies` page.
-
-![image](https://user-images.githubusercontent.com/23629340/36986933-6f8060b4-209b-11e8-8571-496914f9ae96.png)
-
-### Iteration 5 | Add a Movie (Bonus)
-
-#### Iteration 5 (Part 1)
-
-For the bonus, you have to create a page to inster a new movie. You need a `movie` POST route, where the user can enter all the info about each movie(for this iteration you can just reference an URL form web for movie image), and create a new movie after clicking on the Save button on the `/movies/new` page.
-
-#### Iteration 5 (Part 2)
-
-Finally, we can insert a new image for the movie. You will want to store your <a href="https://my.ironhack.com/lms/courses/course-v1:IRONHACK+WDFT+202003_MIA/units/ironhack-course-chapter_7-sequential-vertical_1" target="_blank">image</a>(talk to your LT/TA after you are done with previous iterations)
-
-<img src="https://camo.githubusercontent.com/31e64d1fe782ded4cf0e673f16c623ae3987cf31/68747470733a2f2f6d2e6d656469612d616d617a6f6e2e636f6d2f696d616765732f4d2f4d5635424d6d457a4e546b78596a51745a5463304d4330305954566a4c5467355a5445745a574d774f57566c597a59304e574977586b4579586b467163476465515856794e7a6b774d6a51354e7a4d402e5f56315f5359313030305f4352302c302c3636362c313030305f414c5f2e6a7067" width="250" height="400">
-
-Happy Coding! :heart:
+mongoose
+  .connect("mongodb://localhost:27017/movie-dev", {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(async (self) => {
+    console.log("Connecting to MongoDB", self.connection.name);
+    let result = await Movie.insertMany(movies);
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log("Error connecting to Mongos", error);
+  });
